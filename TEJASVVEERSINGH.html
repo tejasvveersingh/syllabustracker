@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 10 · Syllabus Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f1a;--sf:#131623;--sf2:#1a1e30;--sf3:#212540;--bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.12);--tx:#f0f2ff;--tx2:#8b92b8;--tx3:#555c80;--ac:#6c63ff;--ac2:#8b83ff;--gr:#22d3a0;--grb:rgba(34,211,160,0.1);--am:#f5c542;--amb:rgba(245,197,66,0.1);--tl:#2dd4bf}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(108,99,255,0.12) 0%,transparent 70%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;bottom:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(34,211,160,0.08) 0%,transparent 70%);pointer-events:none;z-index:0}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+nav{position:sticky;top:0;z-index:100;background:rgba(13,15,26,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);padding:14px 0}
+.nav-in{max-width:880px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-ic{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--ac),var(--tl));display:flex;align-items:center;justify-content:center;font-size:15px}
+.logo-t{font-size:15px;font-weight:600;letter-spacing:-.3px}
+.logo-s{font-size:11px;color:var(--tx3);font-family:'DM Mono',monospace}
+.nav-dt{font-size:12px;color:var(--tx3);font-family:'DM Mono',monospace}
+.hero{padding:48px 0 32px}
+.hlbl{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-family:'DM Mono',monospace;color:var(--ac2);text-transform:uppercase;letter-spacing:1.5px;background:rgba(108,99,255,0.1);border:1px solid rgba(108,99,255,0.2);padding:4px 12px;border-radius:20px;margin-bottom:16px}
+.hero h1{font-size:clamp(26px,5vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.15}
+.hero h1 span{background:linear-gradient(135deg,var(--ac2),var(--tl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:15px;color:var(--tx2);margin-top:10px;font-weight:300}
+.ovc{background:var(--sf);border:1px solid var(--bd2);border-radius:20px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.ovc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ac),var(--tl),var(--am))}
+.ovt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.ovp{font-size:52px;font-weight:700;line-height:1;letter-spacing:-2px;background:linear-gradient(135deg,var(--tx),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:4px}
+.stk{font-size:12px;color:var(--am);font-family:'DM Mono',monospace;background:var(--amb);padding:6px 12px;border-radius:8px}
+.blg{height:12px;background:var(--sf3);border-radius:6px;overflow:hidden;margin-bottom:24px}
+.blgf{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--ac),var(--tl));transition:width .6s cubic-bezier(.34,1.56,.64,1);position:relative}
+.blgf::after{content:'';position:absolute;right:0;top:0;bottom:0;width:4px;background:white;border-radius:2px;opacity:.8}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sc{background:var(--sf2);border:1px solid var(--bd);border-radius:14px;padding:16px;text-align:center;transition:transform .2s}
+.sc:hover{transform:translateY(-2px)}
+.scn{font-size:28px;font-weight:700;letter-spacing:-1px}
+.scn.g{color:var(--gr)}.scn.a{color:var(--am)}.scn.m{color:var(--tx2)}
+.scl{font-size:11px;color:var(--tx3);font-family:'DM Mono',monospace;margin-top:3px;text-transform:uppercase;letter-spacing:.8px}
+.stabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.stab{padding:8px 16px;border-radius:20px;border:1px solid var(--bd);background:transparent;cursor:pointer;font-size:12px;font-family:'Sora',sans-serif;color:var(--tx2);transition:all .15s;font-weight:500;display:flex;align-items:center;gap:7px}
+.stab:hover{border-color:var(--bd2);color:var(--tx)}
+.tpct{font-size:11px;font-family:'DM Mono',monospace;opacity:.8}
+.ssr{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.ssl{font-size:11px;font-family:'DM Mono',monospace;color:var(--tx3)}
+.ssp{padding:5px 14px;border-radius:14px;border:1px solid var(--bd);background:transparent;cursor:pointer;font-size:12px;font-family:'Sora',sans-serif;color:var(--tx2);transition:all .15s;font-weight:500}
+.ssp:hover{border-color:var(--bd2);color:var(--tx)}
+.cc{background:var(--sf);border:1px solid var(--bd);border-radius:18px;margin-bottom:14px;overflow:hidden;transition:border-color .2s;animation:fi .3s ease both}
+.cc:hover{border-color:var(--bd2)}
+.cch{display:flex;align-items:center;gap:14px;padding:18px 20px;cursor:pointer}
+.ccb{width:4px;height:36px;border-radius:3px;flex-shrink:0}
+.cci{flex:1}
+.ccn{font-size:15px;font-weight:600;color:var(--tx);margin-bottom:4px}
+.ccm{font-size:11px;color:var(--tx3);font-family:'DM Mono',monospace}
+.ccp{display:flex;align-items:center;gap:12px}
+.ccpt{font-size:18px;font-weight:700;min-width:42px;text-align:right}
+.mb{width:70px;height:6px;background:var(--sf3);border-radius:3px;overflow:hidden}
+.mbf{height:100%;border-radius:3px;transition:width .4s ease}
+.chv{color:var(--tx3);font-size:11px;transition:transform .25s;margin-left:4px}
+.chv.op{transform:rotate(180deg)}
+.tsec{border-top:1px solid var(--bd)}
+.thd{display:grid;grid-template-columns:1fr auto auto;gap:8px;padding:8px 20px;font-size:10px;font-family:'DM Mono',monospace;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;background:var(--sf2)}
+.trow{display:grid;grid-template-columns:26px 1fr auto auto;gap:10px;align-items:center;padding:11px 20px;border-bottom:1px solid var(--bd);transition:background .1s}
+.trow:hover{background:rgba(255,255,255,.02)}
+.tck{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--bd2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;transition:all .15s;flex-shrink:0;font-weight:600}
+.tck.done{background:var(--gr);border-color:var(--gr);color:#0d0f1a}
+.tck.revise{background:var(--am);border-color:var(--am);color:#0d0f1a}
+.tn{font-size:13px;font-weight:500;color:var(--tx)}
+.tn.done{text-decoration:line-through;color:var(--tx3)}
+.ri{font-size:11px;font-family:'DM Mono',monospace;color:var(--tx3);background:transparent;border:none;outline:none;width:100%;margin-top:3px;border-bottom:1px dashed transparent;transition:border-color .15s}
+.ri:focus{border-bottom-color:var(--bd2);color:var(--tx2)}
+.ri::placeholder{color:var(--tx3)}
+.sp{font-size:10px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:6px;font-weight:500}
+.spd{background:var(--grb);color:var(--gr)}
+.spr{background:var(--amb);color:var(--am)}
+.spp{background:rgba(255,255,255,.05);color:var(--tx3)}
+.sbs{display:flex;gap:5px}
+.sb{font-size:10px;font-family:'DM Mono',monospace;font-weight:500;padding:4px 10px;border-radius:6px;border:1px solid transparent;cursor:pointer;transition:all .15s;white-space:nowrap}
+.sbd{background:var(--grb);color:var(--gr);border-color:rgba(34,211,160,.2)}
+.sbd:hover,.sbd.on{background:var(--gr);color:#0d0f1a}
+.sbr{background:var(--amb);color:var(--am);border-color:rgba(245,197,66,.2)}
+.sbr:hover,.sbr.on{background:var(--am);color:#0d0f1a}
+.addsec{padding:12px 20px;background:var(--sf2);display:flex;gap:8px}
+.addi{flex:1;background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:8px 14px;font-size:13px;font-family:'Sora',sans-serif;color:var(--tx);outline:none;transition:border-color .15s}
+.addi:focus{border-color:var(--ac)}
+.addi::placeholder{color:var(--tx3)}
+.addb{background:var(--ac);color:white;border:none;border-radius:10px;padding:8px 18px;font-size:13px;font-family:'Sora',sans-serif;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.addb:hover{background:var(--ac2);transform:translateY(-1px)}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+footer{text-align:center;padding:48px 0 32px;font-size:12px;color:var(--tx3);font-family:'DM Mono',monospace}
+footer span{color:var(--ac2)}
+@media(max-width:540px){.scn{font-size:22px}.ovp{font-size:38px}.trow{grid-template-columns:24px 1fr auto}.sp{display:none}.tpct{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="nav-in">
+  <div class="logo"><div class="logo-ic">📚</div><div><div class="logo-t">SyllabusIQ</div><div class="logo-s">CBSE CLASS X · 2025–26</div></div></div>
+  <div class="nav-dt" id="ndt"></div>
+</div></nav>
+<div class="wrap">
+  <div class="hero">
+    <div class="hlbl">✦ Daily Progress Tracker</div>
+    <h1>Hey Tejasv, <span>Class 10</span><br>How are you doing?</h1>
+    <p>Full CBSE syllabus · Course B English &amp; Hindi · Science &amp; SST split by section · AI included.</p>
+  </div>
+  <div class="ovc">
+    <div class="ovt">
+      <div><div style="font-size:12px;font-family:'DM Mono',monospace;color:var(--tx3);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">Overall Completion</div><div class="ovp" id="ovp">0%</div></div>
+      <div class="stk" id="tlbl">📅 Today</div>
+    </div>
+    <div class="blg"><div class="blgf" id="ovb" style="width:0%"></div></div>
+    <div class="sg">
+      <div class="sc"><div style="font-size:20px;margin-bottom:6px">✅</div><div class="scn g" id="sd">0</div><div class="scl">Completed</div></div>
+      <div class="sc"><div style="font-size:20px;margin-bottom:6px">🔄</div><div class="scn a" id="sr">0</div><div class="scl">Needs Revision</div></div>
+      <div class="sc"><div style="font-size:20px;margin-bottom:6px">⏳</div><div class="scn m" id="sl">0</div><div class="scl">Remaining</div></div>
+    </div>
+  </div>
+  <div class="stabs" id="stabs"></div>
+  <div class="ssr" id="ssr" style="display:none"></div>
+  <div id="ct"></div>
+  <footer>Built with ❤️ for <span>Class 10</span> champions · SyllabusIQ · CBSE Course B</footer>
+</div>
+<script>
+const S=[
+{id:'math',name:'Mathematics',icon:'➗',color:'#22d3a0',subs:null,chaps:[
+{id:'m1',name:'Ch 1 — Real Numbers',open:false,topics:["Euclid's Division Lemma","Fundamental Theorem of Arithmetic","Revisiting Irrational Numbers","Rational Numbers & Decimal Expansions"]},
+{id:'m2',name:'Ch 2 — Polynomials',open:false,topics:["Geometrical Meaning of Zeros","Relationship Between Zeros & Coefficients","Division Algorithm for Polynomials"]},
+{id:'m3',name:'Ch 3 — Pair of Linear Equations',open:false,topics:["Graphical Method","Substitution Method","Elimination Method","Cross-Multiplication Method","Equations Reducible to Linear Form"]},
+{id:'m4',name:'Ch 4 — Quadratic Equations',open:false,topics:["Solution by Factorisation","Completing the Square","Quadratic Formula","Nature of Roots (Discriminant)"]},
+{id:'m5',name:'Ch 5 — Arithmetic Progressions',open:false,topics:["nth Term of an AP","Sum of First n Terms","Application Problems"]},
+{id:'m6',name:'Ch 6 — Triangles',open:false,topics:["Similar Figures","Similarity Criteria: AA, SSS, SAS","Areas of Similar Triangles","Pythagoras Theorem","Converse of Pythagoras Theorem"]},
+{id:'m7',name:'Ch 7 — Coordinate Geometry',open:false,topics:["Distance Formula","Section Formula","Mid-Point Formula","Area of a Triangle"]},
+{id:'m8',name:'Ch 8 — Introduction to Trigonometry',open:false,topics:["Trigonometric Ratios","Ratios of Specific Angles (0,30,45,60,90)","Trigonometric Ratios of Complementary Angles","Trigonometric Identities"]},
+{id:'m9',name:'Ch 9 — Applications of Trigonometry',open:false,topics:["Angle of Elevation","Angle of Depression","Heights & Distances Problems"]},
+{id:'m10',name:'Ch 10 — Circles',open:false,topics:["Tangent to a Circle","Number of Tangents from an External Point","Properties & Theorems on Tangents"]},
+{id:'m11',name:'Ch 11 — Areas Related to Circles',open:false,topics:["Perimeter & Area of a Circle","Area of Sector & Segment","Areas of Combinations of Plane Figures"]},
+{id:'m12',name:'Ch 12 — Surface Areas & Volumes',open:false,topics:["Surface Area of Combination of Solids","Volume of Combination of Solids","Conversion of Solid Shapes","Frustum of a Cone"]},
+{id:'m13',name:'Ch 13 — Statistics',open:false,topics:["Mean: Direct, Assumed Mean, Step-Deviation Methods","Mode of Grouped Data","Median of Grouped Data","Ogive (Cumulative Frequency Graph)"]},
+{id:'m14',name:'Ch 14 — Probability',open:false,topics:["Theoretical Probability","Complementary Events","Problems: Coins, Dice, Cards, Bags"]},
+]},
+{id:'sci',name:'Science',icon:'🔬',color:'#60a5fa',subs:['Physics','Chemistry','Biology'],activeSub:'Physics',chaps:{
+Physics:[
+{id:'p1',name:'Ch 10 — Light: Reflection & Refraction',open:false,topics:["Reflection of Light & Laws","Concave & Convex Mirrors","Mirror Formula & Magnification","Refraction & Snell's Law","Refraction Through a Glass Slab","Refractive Index","Convex & Concave Lenses","Lens Formula & Magnification","Power of a Lens"]},
+{id:'p2',name:'Ch 11 — Human Eye & Colourful World',open:false,topics:["Structure of the Human Eye","Power of Accommodation","Myopia & Correction","Hypermetropia & Correction","Presbyopia","Refraction Through a Prism","Dispersion of White Light","Atmospheric Refraction","Tyndall Effect & Scattering of Light"]},
+{id:'p3',name:'Ch 12 — Electricity',open:false,topics:["Electric Current & Potential Difference","Ohm's Law","Resistance & Resistivity","Factors Affecting Resistance","Resistors in Series","Resistors in Parallel","Heating Effect of Current (Joule's Law)","Electric Power","Commercial Unit of Electrical Energy (kWh)"]},
+{id:'p4',name:'Ch 13 — Magnetic Effects of Electric Current',open:false,topics:["Magnetic Field & Field Lines","Field due to Straight Conductor (Right-Hand Rule)","Magnetic Field due to Circular Loop","Solenoid","Force on Current-Carrying Conductor","Fleming's Left-Hand Rule","Electric Motor","Electromagnetic Induction","Fleming's Right-Hand Rule","AC Generator","Domestic Electric Circuits"]},
+{id:'p5',name:'Ch 14 — Sources of Energy',open:false,topics:["Characteristics of a Good Fuel","Conventional Sources: Fossil Fuels, Thermal Power, Hydro Power","Biomass & Wind Energy","Solar Energy (Solar Cooker, Solar Cell)","Ocean Thermal Energy, Tidal Energy, Wave Energy","Geothermal Energy","Nuclear Energy (Fission & Fusion)","Environmental Consequences of Energy Use"]},
+],
+Chemistry:[
+{id:'c1',name:'Ch 1 — Chemical Reactions & Equations',open:false,topics:["Chemical Equations & Balancing","Combination Reactions","Decomposition Reactions","Displacement Reactions","Double Displacement Reactions","Oxidation & Reduction","Effects of Oxidation (Rancidity, Corrosion)"]},
+{id:'c2',name:'Ch 2 — Acids, Bases & Salts',open:false,topics:["Properties of Acids & Bases","Reaction of Acids with Metals, Metal Oxides, Carbonates","Acid-Base Neutralisation","Indicators: Litmus, Phenolphthalein, Methyl Orange","pH Scale & Its Importance in Daily Life","Salts, Their pH & Uses","NaOH, Baking Soda, Washing Soda, Bleaching Powder","Plaster of Paris"]},
+{id:'c3',name:'Ch 3 — Metals & Non-Metals',open:false,topics:["Physical Properties of Metals & Non-Metals","Chemical Properties of Metals","Reactivity Series of Metals","Ionic Bond Formation","Occurrence of Metals in Nature","Extraction: Low, Medium, High Reactivity","Refining of Metals (Electrolytic Refining)","Corrosion & Its Prevention (Galvanisation, Alloying)"]},
+{id:'c4',name:'Ch 4 — Carbon & Its Compounds',open:false,topics:["Covalent Bonding in Carbon","Versatile Nature of Carbon (Tetravalency, Catenation)","Saturated & Unsaturated Compounds","Chains, Branches & Rings","Homologous Series","IUPAC Nomenclature of Carbon Compounds","Combustion, Oxidation, Addition, Substitution Reactions","Ethanol: Properties & Uses","Ethanoic Acid: Properties & Uses","Soaps & Detergents"]},
+{id:'c5',name:'Ch 5 — Periodic Classification of Elements',open:false,topics:["Dobereiner's Triads","Newlands' Law of Octaves","Mendeleev's Periodic Table (Merits & Limitations)","Modern Periodic Table (Moseley's Law)","Trends in Valency, Atomic Size, Metallic Character","Trends in Electronegativity & Ionisation Enthalpy"]},
+],
+Biology:[
+{id:'b1',name:'Ch 6 — Life Processes',open:false,topics:["What are Life Processes?","Autotrophic Nutrition: Photosynthesis (Raw Materials, Process, Products)","Heterotrophic Nutrition: Holozoic, Parasitic, Saprophytic","Nutrition in Amoeba & in Humans (Alimentary Canal)","Aerobic & Anaerobic Respiration","Respiration in Humans (Lungs, Diaphragm)","Transportation in Plants (Xylem, Phloem, Transpiration)","Transportation in Humans (Heart, Blood, Arteries, Veins, Lymph)","Excretion in Humans (Kidneys, Nephron, Dialysis)","Excretion in Plants"]},
+{id:'b2',name:'Ch 7 — Control & Coordination',open:false,topics:["Neuron Structure & Function","Nerve Impulse Transmission","Reflex Action & Reflex Arc","Human Brain: Cerebrum, Cerebellum, Medulla","Protection of Brain & Spinal Cord","Coordination in Plants: Tropism (Photo, Geo, Hydro, Thigmo, Chemo)","Phytohormones: Auxin, Gibberellin, Cytokinin, ABA, Ethylene","Endocrine Glands & Hormones in Animals","Feedback Mechanism"]},
+{id:'b3',name:'Ch 8 — How do Organisms Reproduce?',open:false,topics:["Why Reproduce?","Asexual: Fission (Binary, Multiple)","Asexual: Budding, Fragmentation, Regeneration","Vegetative Propagation (Natural & Artificial)","Sexual Reproduction in Flowering Plants","Pollination (Self & Cross), Fertilisation","Fruit & Seed Formation","Male Reproductive System","Female Reproductive System","Puberty & Adolescence","Contraception Methods","STIs & AIDS Awareness"]},
+{id:'b4',name:'Ch 9 — Heredity & Evolution',open:false,topics:["Accumulation of Variation","Heredity & Gregor Mendel's Experiments","Monohybrid Cross (3:1 Ratio)","Dihybrid Cross (9:3:3:1 Ratio)","Sex Determination in Humans","Acquired vs Inherited Traits","Evolution & Darwin's Natural Selection","Speciation","Fossils as Evidence","Evolutionary Relationships (Homologous & Analogous Organs)","Human Evolution"]},
+{id:'b5',name:'Ch 15 — Our Environment',open:false,topics:["Components of Ecosystem (Biotic & Abiotic)","Food Chains & Food Webs","Trophic Levels","Energy Flow & 10% Law","Biological Magnification","Ozone Layer Depletion","Garbage & Waste Management"]},
+{id:'b6',name:'Ch 16 — Sustainable Management of Natural Resources',open:false,topics:["Why Manage Natural Resources?","Forests & Wildlife: Stakeholders & Chipko Movement","Wildlife Sanctuaries & National Parks","Water Resources: Dams (Pros & Cons)","Traditional Water Harvesting","Coal & Petroleum: Judicious Use","Alternatives to Fossil Fuels (3R: Reduce, Reuse, Recycle)"]},
+]}},
+{id:'sst',name:'Social Science',icon:'🌍',color:'#fb923c',subs:['History','Civics','Geography','Economics'],activeSub:'History',chaps:{
+History:[
+{id:'h1',name:'Ch 1 — The Rise of Nationalism in Europe',open:false,topics:["The French Revolution & the Nation","Making of Nationalism in Europe","The Age of Revolutions: 1830–1848","Making of Germany (Bismarck) & Italy (Garibaldi)","Visualising the Nation: Allegories","Feminism & Liberal Nationalism"]},
+{id:'h2',name:'Ch 2 — Nationalism in India',open:false,topics:["The First World War & Economic Hardship","Rowlatt Act & Jallianwala Bagh (1919)","Non-Cooperation Movement (1920–22)","Differing Strands within the Movement","Towards Civil Disobedience","Salt March (1930) & Civil Disobedience Movement","Participation of Women, Dalits, Tribals","The Sense of Collective Belonging"]},
+{id:'h3',name:'Ch 3 — The Making of a Global World',open:false,topics:["Silk Routes & Pre-Modern Trade","Food Travels & Conquest","The Nineteenth Century: Trade, Finance, Migration","The Great Depression (1929)","Post-War Recovery & Bretton Woods (IMF, World Bank)"]},
+{id:'h4',name:'Ch 4 — The Age of Industrialisation',open:false,topics:["Before the Industrial Revolution: Proto-Industrialisation","Hand Labour vs Steam Power","Industrialisation in Colonies (India)","Factories Come Up in Britain","Peculiarities of Industrial Growth","Market for Goods: Advertisements & Fashion"]},
+{id:'h5',name:'Ch 5 — Print Culture & the Modern World',open:false,topics:["First Printed Books (China, Gutenberg)","Print Comes to Europe","The Print Revolution & Its Impact","The Reading Mania","India & the World of Print","Religious Reform & Debates","Women & Print","Print & the Poor","Print & Nationalism"]},
+],
+Civics:[
+{id:'cv1',name:'Ch 1 — Power Sharing',open:false,topics:["Case Study: Belgium","Case Study: Sri Lanka","Why is Power Sharing Desirable?","Forms: Among Government Levels, Different Social Groups"]},
+{id:'cv2',name:'Ch 2 — Federalism',open:false,topics:["What is Federalism?","What Makes India Federal?","How is Federalism Practised?","Decentralisation in India","73rd & 74th Constitutional Amendments","Panchayati Raj Institutions"]},
+{id:'cv3',name:'Ch 3 — Democracy & Diversity',open:false,topics:["Overlapping vs Cross-Cutting Differences","Mexico Olympics Story (1968)","Three Determinants of Political Outcomes","Social Divisions & Democracy"]},
+{id:'cv4',name:'Ch 4 — Gender, Religion & Caste',open:false,topics:["Gender Division of Labour","Public/Private Division & Political Representation","Religion, Communalism & Secular State","Caste & Politics in India","Caste Inequalities"]},
+{id:'cv5',name:'Ch 5 — Popular Struggles & Movements',open:false,topics:["Nepal's Popular Struggle (2006)","Bolivia's Water War","Types of Pressure Groups","Movement Groups vs Permanent Organisations"]},
+{id:'cv6',name:'Ch 6 — Political Parties',open:false,topics:["Why Political Parties?","Two-Party vs Multi-Party Systems","National Parties of India (INC, BJP, BSP, NCP, CPI, CPM)","State & Regional Parties","Challenges & Reforms to Political Parties"]},
+{id:'cv7',name:'Ch 7 — Outcomes of Democracy',open:false,topics:["Accountable & Legitimate Government","Economic Growth & Development","Reduction of Inequality & Poverty","Accommodation of Social Diversity","Dignity & Freedom of Citizens"]},
+{id:'cv8',name:'Ch 8 — Challenges to Democracy',open:false,topics:["Foundational Challenge","Challenge of Expansion","Challenge of Deepening Democracy","Possible Reforms & Ways Forward"]},
+],
+Geography:[
+{id:'g1',name:'Ch 1 — Resources & Development',open:false,topics:["Types of Resources (Natural, Human, Man-Made)","Development of Resources & Resource Planning","Land Resources & Land Use Pattern","Land Degradation & Conservation Measures","Soil Types of India (Alluvial, Black, Red, Laterite, Arid, Forest)","Soil Erosion & Soil Conservation"]},
+{id:'g2',name:'Ch 2 — Forest & Wildlife Resources',open:false,topics:["Flora & Fauna in India","Types of Forests (Reserved, Protected, Unclassed)","Destruction of Forests & Wildlife","Community & Conservation Initiatives","Sacred Groves & Biosphere Reserves"]},
+{id:'g3',name:'Ch 3 — Water Resources',open:false,topics:["Water Scarcity & Its Causes","Multi-Purpose River Projects: Benefits & Problems","Rainwater Harvesting in India","Traditional Methods: Khadins, Johads, Baolis"]},
+{id:'g4',name:'Ch 4 — Agriculture',open:false,topics:["Types of Farming: Primitive Subsistence, Intensive Subsistence, Commercial","Cropping Seasons: Kharif, Rabi, Zaid","Food Crops: Rice, Wheat, Millets, Maize, Pulses","Cash Crops: Sugarcane, Oilseeds, Tea, Coffee, Rubber, Cotton, Jute","Technological & Institutional Reforms (Green Revolution, Land Reforms)","Food Security in India"]},
+{id:'g5',name:'Ch 5 — Minerals & Energy Resources',open:false,topics:["What is a Mineral?","Ferrous Minerals: Iron Ore, Manganese, Chromite","Non-Ferrous: Copper, Bauxite, Lead, Zinc","Non-Metallic: Limestone, Mica, Rock Salt","Conservation of Minerals","Conventional Energy: Coal, Petroleum, Natural Gas, Electricity","Non-Conventional Energy: Solar, Wind, Biogas, Tidal, Geothermal"]},
+{id:'g6',name:'Ch 6 — Manufacturing Industries',open:false,topics:["Importance of Manufacturing","Industrial Location Factors","Agro-Based: Cotton Textile, Jute, Sugar","Mineral-Based: Iron & Steel, Aluminium, Cement, Chemical","Industrial Pollution & Control of Environmental Degradation"]},
+{id:'g7',name:'Ch 7 — Lifelines of National Economy',open:false,topics:["Roadways (NH, State Highways, District Roads, Rural Roads)","Railways (Route Length, Types, Gauge)","Pipelines","Waterways (National Waterways)","Airways","Personal Communication: Postal, Telecom","Mass Communication: Print, Radio, Television, Internet","International Trade & India's Trade Partners","Role of Tourism as a Trade"]},
+],
+Economics:[
+{id:'ec1',name:'Ch 1 — Development',open:false,topics:["Development Goals: Different People, Different Goals","Income & Other Goals (Non-Material Goals)","National Development vs World Development","Human Development Index (HDI)","Comparison of Countries: Per Capita Income vs HDI","Public Facilities & Development","Sustainability of Development"]},
+{id:'ec2',name:'Ch 2 — Sectors of the Indian Economy',open:false,topics:["Primary, Secondary & Tertiary Sectors","GDP & Comparison of Sectors","Shifting of Sectors Over Time (Historical)","Employment in Three Sectors","Organised vs Unorganised Sector","Public vs Private Sector","Protecting Unorganised Sector Workers","MGNREGA Scheme"]},
+{id:'ec3',name:'Ch 3 — Money & Credit',open:false,topics:["Barter System & Need for Money","Modern Forms of Money","Loan Activities of Banks","Two Credit Situations (Urban vs Rural)","Terms of Credit: Collateral, Interest Rate","Formal Sector Credit: Banks, Cooperatives","Informal Sector: Moneylenders, Traders","Self-Help Groups (SHGs) for the Poor","Credit & Economic Development"]},
+{id:'ec4',name:'Ch 4 — Globalisation & the Indian Economy',open:false,topics:["Production Across Countries","MNCs & Interlinking Production","Foreign Trade & Market Integration","What is Globalisation?","Factors Enabling Globalisation (Technology, Liberalisation)","World Trade Organisation (WTO)","Impact on Indian Producers (Textiles, Automobiles)","Fair Globalisation"]},
+{id:'ec5',name:'Ch 5 — Consumer Rights',open:false,topics:["Consumer in the Marketplace","Consumer Exploitation & Cheating","Consumer Movement History","6 Consumer Rights (Awareness, Choice, Safety, Redressal, Representation, Education)","Consumer Disputes Redressal Forums (District, State, National)","COPRA 1986","ISI, Agmark, Hallmark, FPO Certifications"]},
+]}},
+{id:'eng',name:'English',icon:'📖',color:'#a78bfa',subs:['First Flight','Footprints Without Feet','Grammar & Writing'],activeSub:'First Flight',chaps:{
+'First Flight':[
+{id:'ff1',name:'A Letter to God',open:false,topics:["Prose: A Letter to God (G.L. Fuentes)","Theme: Faith & Irony","Poem: Dust of Snow (Robert Frost)","Poem: Fire and Ice (Robert Frost)"]},
+{id:'ff2',name:'Nelson Mandela: Long Walk to Freedom',open:false,topics:["Prose: Nelson Mandela: Long Walk to Freedom","Theme: Courage, Freedom, Transformation","Character Sketch: Nelson Mandela","Poem: A Tiger in the Zoo (Leslie Norris)"]},
+{id:'ff3',name:'Two Stories About Flying',open:false,topics:["Prose 1: His First Flight (Liam O'Flaherty)","Prose 2: The Black Aeroplane (Frederick Forsyth)","Poem: How to Tell Wild Animals (Carolyn Wells)","Poem: The Ball Poem (John Berryman)"]},
+{id:'ff4',name:'From the Diary of Anne Frank',open:false,topics:["Prose: From the Diary of Anne Frank","Theme: War, Loneliness, Growing Up","Character Sketch: Anne Frank","Poem: Amanda! (Robin Klein)"]},
+{id:'ff5',name:'The Hundred Dresses — I & II',open:false,topics:["The Hundred Dresses – I (Eleanor Estes)","The Hundred Dresses – II","Theme: Bullying, Empathy, Regret","Poem: Animals (Walt Whitman)"]},
+{id:'ff6',name:'Glimpses of India',open:false,topics:["A Baker from Goa (Lucio Rodrigues)","Coorg (Lokesh Abrol)","Tea from Assam (Arup Kumar Datta)","Poem: The Trees (Adrienne Rich)"]},
+{id:'ff7',name:'Madam Rides the Bus',open:false,topics:["Prose: Madam Rides the Bus (Vallikkannan)","Theme: Curiosity, Life & Death","Poem: The Tale of Custard the Dragon (Ogden Nash)"]},
+{id:'ff8',name:'The Sermon at Benares',open:false,topics:["Prose: The Sermon at Benares (Betty Renshaw)","Theme: Grief, Wisdom, Acceptance","Poem: For Anne Gregory (W.B. Yeats)"]},
+{id:'ff9',name:'The Proposal (Drama)',open:false,topics:["Drama: The Proposal (Anton Chekov)","Character Sketches: Lomov, Natalya, Chubukov","Themes: Marriage, Property Disputes, Humour"]},
+],
+'Footprints Without Feet':[
+{id:'fw1',name:'A Triumph of Surgery',open:false,topics:["A Triumph of Surgery (James Herriot)","Character: Tricki & Mr Herriot","Moral: Over-pampering is harmful"]},
+{id:'fw2',name:"The Thief's Story",open:false,topics:["The Thief's Story (Ruskin Bond)","Character: Hari Singh & Anil","Theme: Trust & Reformation"]},
+{id:'fw3',name:'The Midnight Visitor',open:false,topics:["The Midnight Visitor (Robert Arthur)","Character: Ausable","Genre: Detective/Spy Fiction","Theme: Presence of Mind"]},
+{id:'fw4',name:'A Question of Trust',open:false,topics:["A Question of Trust (Victor Canning)","Irony & Twist in the Story","Character Analysis: Horace Danby"]},
+{id:'fw5',name:'Footprints without Feet',open:false,topics:["Footprints without Feet (H.G. Wells)","Character: Griffin (The Invisible Man)","Theme: Science Misused"]},
+{id:'fw6',name:'The Making of a Scientist',open:false,topics:["The Making of a Scientist (Robert W. Peterson)","Character: Richard Ebright","Theme: Scientific Curiosity & Hard Work"]},
+{id:'fw7',name:'The Necklace',open:false,topics:["The Necklace (Guy de Maupassant)","Character: Matilda Loisel","Theme: Materialism, Irony, Consequences"]},
+{id:'fw8',name:'Bholi',open:false,topics:["Bholi (K.A. Abbas)","Character Development: Bholi (Sulekha)","Theme: Education Empowers Women"]},
+{id:'fw9',name:'The Book That Saved the Earth',open:false,topics:["The Book That Saved the Earth (Claire Boiko)","Genre: Humorous Science Fiction","Theme: Books & Knowledge"]},
+],
+'Grammar & Writing':[
+{id:'gw1',name:'Grammar — Tenses',open:false,topics:["Simple Tenses (Present, Past, Future)","Continuous Tenses","Perfect Tenses","Perfect Continuous Tenses","Gap Filling & Editing Exercises"]},
+{id:'gw2',name:'Grammar — Modals',open:false,topics:["Can / Could / May / Might","Must / Should / Ought to / Need","Will / Shall / Would","Modal + Have + V3 Structures"]},
+{id:'gw3',name:'Grammar — Active & Passive Voice',open:false,topics:["Active to Passive Transformation","Passive for All Tenses","Passive with Modals","Gap Filling Exercises"]},
+{id:'gw4',name:'Grammar — Reported Speech',open:false,topics:["Direct to Indirect: Statements","Direct to Indirect: Questions (Yes/No, Wh-)","Direct to Indirect: Commands & Requests","Reporting Verbs (say, tell, ask, order)"]},
+{id:'gw5',name:'Grammar — Determiners, Articles & Prepositions',open:false,topics:["Articles: a, an, the (Rules)","Determiners: some, any, each, every, either, neither","Prepositions of Time, Place, Direction","Gap Filling Exercises"]},
+{id:'gw6',name:'Grammar — Editing & Omission',open:false,topics:["Editing Passages (Error Correction)","Omission (Missing Words)","Gap Filling (Prepositions, Articles, Conjunctions)"]},
+{id:'gw7',name:'Writing — Formal Letter',open:false,topics:["Letter to Editor","Letter of Complaint","Letter of Inquiry","Letter to Government Officials","Format & Formal Language"]},
+{id:'gw8',name:'Writing — Article, Paragraph & Notice',open:false,topics:["Article Writing (150–200 words)","Paragraph Writing","Notice Writing (Format)","Message Writing"]},
+{id:'gw9',name:'Writing — Story & Diary Entry',open:false,topics:["Story Writing with Visual/Verbal Input","Diary Entry (Format & Language)","Descriptive & Imaginative Writing"]},
+]}},
+{id:'hin',name:'Hindi (Course B)',icon:'🇮🇳',color:'#f472b6',subs:['Sparsh','Sanchayan','Vyakaran'],activeSub:'Sparsh',chaps:{
+Sparsh:[
+{id:'sp1',name:'Kabir — Sakhiyan avm Sabad',open:false,topics:["Sakhiyan (Dohe)","Sabad (Pad)","Bhavarth & Shabd-Arth","Kavyasaundarya"]},
+{id:'sp2',name:'Meera — Pad',open:false,topics:["Pad 1 & 2 (Meera)","Bhavarth & Bhakti Bhav","Prashnottar"]},
+{id:'sp3',name:'Bihari — Dohe',open:false,topics:["Selected Dohe by Bihari","Bhavarth & Shabd-Arth","Shringarik Bhav"]},
+{id:'sp4',name:'Manushyata — Maithilisharan Gupt',open:false,topics:["Kavita: Manushyata (Full)","Bhavarth Stanza-wise","Mulya-Bodh & Prashnottar"]},
+{id:'sp5',name:'Parvat Pradesh Mein Pavas — S.N. Pant',open:false,topics:["Kavita: Parvat Pradesh Mein Pavas","Prakriti Chitran & Imagery","Kavyasaundarya & Prashnottar"]},
+{id:'sp6',name:'Madhur-Madhur Mere Deepak Jal — Mahadevi Verma',open:false,topics:["Kavita: Madhur-Madhur Mere Deepak Jal","Chhayavadi Shaili","Bhavarth & Prashnottar"]},
+{id:'sp7',name:'Top — Nazeer Akbarabadi',open:false,topics:["Kavita: Top","Vyangya avm Arthgrahit","Prashnottar"]},
+{id:'sp8',name:'Ek Phool Ki Chah',open:false,topics:["Kavita: Ek Phool Ki Chah","Samajik Sandesh (Dalit Consciousness)","Prashnottar"]},
+{id:'sp9',name:'Bade Bhai Sahab — Premchand',open:false,topics:["Kahani: Bade Bhai Sahab (Full Summary)","Patra-Lekhan Exercises","Prashnottar"]},
+{id:'sp10',name:'Diary Ka Ek Panna',open:false,topics:["Gadya: Diary Ka Ek Panna","Aitihasik Sandarbh (26 Jan 1931)","Prashnottar"]},
+{id:'sp11',name:'Tantara-Vamiro Katha',open:false,topics:["Lokgatha: Tantara-Vamiro Katha","Prem avm Balidan","Mulya-Bodh & Prashnottar"]},
+{id:'sp12',name:'Teesri Kasam Ke Shilpkaar',open:false,topics:["Gadya: Teesri Kasam Ke Shilpkaar (Shailendra)","Shailendra Ka Vyaktitva","Prashnottar"]},
+{id:'sp13',name:'Aatmakathya — Jaishankar Prasad',open:false,topics:["Kavita: Aatmakathya","Chhayavadi Shaili & Bhavarth","Prashnottar"]},
+{id:'sp14',name:'Ab Kahan Doosron Ke Dukh',open:false,topics:["Gadya: Ab Kahan Doosron Ke Dukh","Paryavaran Sandesh","Prashnottar"]},
+{id:'sp15',name:'Patjhad Ki Tooti Pattiyaan',open:false,topics:["Gadya: Patjhad Ki Tooti Pattiyaan","Mulya-Bodh","Prashnottar"]},
+{id:'sp16',name:'Kartoos (Drama Portion)',open:false,topics:["Gadya: Kartoos (Habib Tanvir)","Wazir Ali Ka Vyaktitva & Sahas","Prashnottar"]},
+],
+Sanchayan:[
+{id:'sa1',name:'Harihar Kaka',open:false,topics:["Kahani: Harihar Kaka (Mithileshwar)","Samajik Samasya: Bujurgon Ki Upeksha","Prashnottar"]},
+{id:'sa2',name:'Sapno Ke-Se Din',open:false,topics:["Kahani: Sapno Ke-Se Din (Gurdial Singh)","Balak Jiwan ka Chitran","Prashnottar"]},
+{id:'sa3',name:'Topi Shukla',open:false,topics:["Kahani: Topi Shukla","Maitri avm Sampradayikta","Prashnottar"]},
+],
+Vyakaran:[
+{id:'vy1',name:'Shabda Bhed (Udbhav & Udgam)',open:false,topics:["Tatsam avm Tadbhav Shabda","Deshaj, Videshi avm Sankar Shabda","Prashnottar"]},
+{id:'vy2',name:'Pad Bhed (Parts of Speech)',open:false,topics:["Sangya & Uske Bhed","Sarvnam & Uske Bhed","Visheshan & Uske Bhed","Kriya: Sakarmak avm Akarmak","Avyay (Indeclinables)"]},
+{id:'vy3',name:'Sandhi',open:false,topics:["Svar Sandhi: Dirgha, Guna, Vriddhi, Yan, Ayadi","Vyanjan Sandhi","Visarg Sandhi","Sandhi Viched Exercises"]},
+{id:'vy4',name:'Samas',open:false,topics:["Avyayibhav Samas","Tatpurush Samas","Karmadharaya Samas","Dvigu Samas","Dvandv Samas","Bahuvrihi Samas","Samas Vigrah Exercises"]},
+{id:'vy5',name:'Ras',open:false,topics:["Shringar Ras","Hasya Ras","Karuna Ras","Veer Ras","Shant Ras","Sthayi Bhav, Vibhav, Anubhav, Vyabhichari Bhav","Udaharan & Identification"]},
+{id:'vy6',name:'Alankar',open:false,topics:["Anupras Alankar","Yamak Alankar","Shlesh Alankar","Upma Alankar","Rupak Alankar","Utpreksha Alankar","Udaharan & Identification"]},
+{id:'vy7',name:'Chhand',open:false,topics:["Doha","Sortha","Chaupai","Savaiya","Identification Exercises"]},
+{id:'vy8',name:'Nibandh Lekhan',open:false,topics:["Varnatmak Nibandh (Descriptive)","Vicharatmak Nibandh (Argumentative)","Bhavatmak Nibandh","Current Affairs-Based Nibandh"]},
+{id:'vy9',name:'Patra Lekhan',open:false,topics:["Aupcharik Patra Format","Complaint Letter","Inquiry Letter","Avedan Patra (Application)","Anaupcharik Patra"]},
+{id:'vy10',name:'Sandesh, Suchna & Vigyapan',open:false,topics:["Sandesh (Message) Writing","Suchna (Notice) Writing","Vigyapan (Advertisement) Writing"]},
+]}},
+{id:'ai',name:'Artificial Intelligence',icon:'🤖',color:'#2dd4bf',subs:null,chaps:[
+{id:'ai1',name:'Unit 1 — Introduction to AI',open:false,topics:["What is Artificial Intelligence?","History & Evolution of AI","Types of AI: Narrow, General, Super AI","Branches: ML, DL, NLP, Computer Vision, Robotics","AI vs Human Intelligence","AI Applications in Daily Life"]},
+{id:'ai2',name:'Unit 2 — AI Project Cycle',open:false,topics:["Problem Scoping","Data Acquisition","Data Exploration (EDA)","Modelling","Evaluation","Deployment","Responsible AI in the Cycle"]},
+{id:'ai3',name:'Unit 3 — Data & Its Types',open:false,topics:["What is Data?","Structured vs Unstructured Data","Quantitative vs Qualitative Data","Primary & Secondary Data","Data Collection Methods","Data Preprocessing: Cleaning & Transformation","Data Visualisation: Bar, Pie, Line, Histogram","Importance of Data Quality"]},
+{id:'ai4',name:'Unit 4 — Machine Learning',open:false,topics:["What is Machine Learning?","Supervised Learning: Regression & Classification","Unsupervised Learning: Clustering","Reinforcement Learning","Decision Trees","Overfitting & Underfitting","Training vs Testing Data","Evaluation Metrics: Accuracy, Precision, Recall, F1"]},
+{id:'ai5',name:'Unit 5 — Neural Networks & Deep Learning',open:false,topics:["Biological Inspiration: Human Brain","Artificial Neuron (Perceptron)","Layers: Input, Hidden, Output","Activation Functions (Sigmoid, ReLU)","Forward & Backward Propagation","Introduction to Deep Learning","CNN Basics for Image Recognition"]},
+{id:'ai6',name:'Unit 6 — Natural Language Processing (NLP)',open:false,topics:["What is NLP?","Tokenisation","Stemming & Lemmatisation","Stopwords Removal","Bag of Words Model","Sentiment Analysis","Text Classification","Chatbots & Virtual Assistants"]},
+{id:'ai7',name:'Unit 7 — Computer Vision',open:false,topics:["What is Computer Vision?","Image as Data: Pixels & Matrices","Image Recognition","Object Detection","Facial Recognition Technology","Applications: Medical Imaging, Autonomous Vehicles","Ethical Issues in Computer Vision"]},
+{id:'ai8',name:'Unit 8 — Ethics in AI',open:false,topics:["Bias in AI: Data, Algorithmic, Societal","Privacy & Surveillance","AI & Employment (Automation)","Deepfakes & Misinformation","Responsible AI Principles (Fairness, Transparency)","AI Regulations & Policy (India & Global)"]},
+{id:'ai9',name:'Unit 9 — Tools & Hands-On Practice',open:false,topics:["Introduction to Python for AI (Basics)","Teachable Machine by Google","Scratch with ML Extensions","Exploring Kaggle Datasets","Building a Simple Chatbot","Image Classification Mini-Project","AI Project Documentation & Presentation"]},
+]}
+];
+
+let st={activeSubj:'math',prog:{}};
+function sv(){try{const e=S.map(s=>({id:s.id,sub:s.activeSub}));const o=S.flatMap(s=>{const c=s.subs?Object.values(s.chaps).flat():s.chaps;return c.map(x=>({id:x.id,open:x.open}))});localStorage.setItem('c10v5',JSON.stringify({...st,ss:e,op:o}));}catch(e){}}
+function ld(){try{const d=localStorage.getItem('c10v5');if(!d)return;const p=JSON.parse(d);st.activeSubj=p.activeSubj||'math';st.prog=p.prog||{};if(p.ss)p.ss.forEach(({id,sub})=>{const s=S.find(x=>x.id===id);if(s&&sub)s.activeSub=sub;});if(p.op)p.op.forEach(({id,open})=>{S.forEach(s=>{const c=s.subs?Object.values(s.chaps).flat():s.chaps;const x=c.find(y=>y.id===id);if(x)x.open=open;});});}catch(e){}}
+ld();
+function k(s,c,t){return s+'||'+c+'||'+t;}
+function gT(s,c,t){return st.prog[k(s,c,t)]||{status:'pending',remark:''};}
+function sT(s,c,t,st2,r){const ky=k(s,c,t);const o=st.prog[ky]||{remark:''};st.prog[ky]={status:st2,remark:r!==undefined?r:o.remark};sv();}
+function sR(s,c,t,r){const ky=k(s,c,t);if(!st.prog[ky])st.prog[ky]={status:'pending',remark:r};else st.prog[ky].remark=r;sv();}
+function cSt(subj,c){let d=0,r=0;c.topics.forEach(t=>{const s=gT(subj.id,c.id,t).status;if(s==='done')d++;else if(s==='revise')r++;});const tot=c.topics.length;return{d,r,tot,pct:tot?Math.round(d/tot*100):0};}
+function sSt(subj){const ch=subj.subs?Object.values(subj.chaps).flat():subj.chaps;let d=0,r=0,tot=0;ch.forEach(c=>{const x=cSt(subj,c);d+=x.d;r+=x.r;tot+=x.tot;});return{d,r,tot,pct:tot?Math.round(d/tot*100):0};}
+function aS(){let d=0,r=0,tot=0;S.forEach(s=>{const x=sSt(s);d+=x.d;r+=x.r;tot+=x.tot;});return{d,r,tot,left:tot-d-r,pct:tot?Math.round(d/tot*100):0};}
+function rDate(){const n=new Date();document.getElementById('ndt').textContent=n.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'});document.getElementById('tlbl').textContent='📅 '+n.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long'});}
+function rOv(){const x=aS();document.getElementById('ovp').textContent=x.pct+'%';document.getElementById('ovb').style.width=x.pct+'%';document.getElementById('sd').textContent=x.d;document.getElementById('sr').textContent=x.r;document.getElementById('sl').textContent=x.left;}
+function rTabs(){const con=document.getElementById('stabs');con.innerHTML='';S.forEach(s=>{const x=sSt(s);const b=document.createElement('button');b.className='stab'+(st.activeSubj===s.id?' active':'');b.style.cssText=st.activeSubj===s.id?`background:${s.color}22;border-color:${s.color};color:${s.color}`:'';b.innerHTML=`<span>${s.icon}</span><span>${s.name}</span><span class="tpct">${x.pct}%</span>`;b.onclick=()=>{st.activeSubj=s.id;sv();render();};con.appendChild(b);});}
+function rSubs(){const subj=S.find(s=>s.id===st.activeSubj);const row=document.getElementById('ssr');if(!subj||!subj.subs){row.style.display='none';return;}row.style.display='flex';row.innerHTML='<span class="ssl">Section:</span>';subj.subs.forEach(ss=>{const b=document.createElement('button');b.className='ssp'+(subj.activeSub===ss?' active':'');b.style.cssText=subj.activeSub===ss?`background:${subj.color};border-color:${subj.color};color:#0d0f1a`:'';b.textContent=ss;b.onclick=()=>{subj.activeSub=ss;sv();render();};row.appendChild(b);});}
+function rChaps(){const con=document.getElementById('ct');con.innerHTML='';const subj=S.find(s=>s.id===st.activeSubj);if(!subj)return;const chaps=subj.subs?(subj.chaps[subj.activeSub]||[]):subj.chaps;
+chaps.forEach((c,i)=>{const cs=cSt(subj,c);const card=document.createElement('div');card.className='cc';card.style.animationDelay=(i*.04)+'s';
+const hdr=document.createElement('div');hdr.className='cch';hdr.innerHTML=`<div class="ccb" style="background:${subj.color}"></div><div class="cci"><div class="ccn">${c.name}</div><div class="ccm">${cs.d}/${cs.tot} topics done · ${cs.r} to revise</div></div><div class="ccp"><div class="mb"><div class="mbf" style="width:${cs.pct}%;background:${subj.color}"></div></div><div class="ccpt" style="color:${subj.color}">${cs.pct}%</div></div><div class="chv${c.open?' op':''}">▾</div>`;
+hdr.onclick=()=>{c.open=!c.open;sv();render();};card.appendChild(hdr);
+if(c.open){const sec=document.createElement('div');sec.className='tsec';const th=document.createElement('div');th.className='thd';th.innerHTML='<span>Topic</span><span>Status</span><span>Actions</span>';sec.appendChild(th);
+c.topics.forEach(tn=>{const tp=gT(subj.id,c.id,tn);const row=document.createElement('div');row.className='trow';const ic=tp.status==='done'?'✓':tp.status==='revise'?'↺':'';const sc=tp.status==='done'?'spd':tp.status==='revise'?'spr':'spp';
+row.innerHTML=`<div class="tck${tp.status!=='pending'?' '+tp.status:''}">${ic}</div><div><div class="tn${tp.status==='done'?' done':''}">${tn}</div><input class="ri" placeholder="Add remark..." value="${(tp.remark||'').replace(/"/g,'&quot;')}" data-s="${subj.id}" data-c="${c.id}" data-t="${tn.replace(/"/g,'&quot;')}"></div><div><span class="sp ${sc}">${tp.status}</span></div><div class="sbs"><button class="sb sbd${tp.status==='done'?' on':''}" data-a="done" data-s="${subj.id}" data-c="${c.id}" data-t="${tn.replace(/"/g,'&quot;')}">Done</button><button class="sb sbr${tp.status==='revise'?' on':''}" data-a="revise" data-s="${subj.id}" data-c="${c.id}" data-t="${tn.replace(/"/g,'&quot;')}">Revise</button></div>`;
+sec.appendChild(row);});
+const ar=document.createElement('div');ar.className='addsec';ar.innerHTML=`<input class="addi" placeholder="Add custom topic..." id="ai-${c.id}"><button class="addb" data-ac="${c.id}" data-as="${subj.id}">+ Add</button>`;sec.appendChild(ar);card.appendChild(sec);
+sec.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b){const{a,s,c:cId,t}=b.dataset;const old=gT(s,cId,t);sT(s,cId,t,old.status===a?'pending':a,old.remark);render();return;}const ab=e.target.closest('[data-ac]');if(ab){const inp=document.getElementById('ai-'+ab.dataset.ac);const nm=inp&&inp.value.trim();if(!nm)return;const sv2=S.find(x=>x.id===ab.dataset.as);const ch2=sv2.subs?Object.values(sv2.chaps).flat():sv2.chaps;const cap=ch2.find(x=>x.id===ab.dataset.ac);if(cap){cap.topics.push(nm);sv();render();}}});
+sec.addEventListener('input',e=>{const inp=e.target.closest('.ri');if(inp)sR(inp.dataset.s,inp.dataset.c,inp.dataset.t,inp.value);});}
+con.appendChild(card);});}
+function render(){rDate();rOv();rTabs();rSubs();rChaps();}
+render();
+</script>
+</body>
+</html>
